@@ -31,7 +31,7 @@ public final class CheckoutTest {
 
         test("null item throws", () -> {
             expectThrows(IllegalArgumentException.class,
-                    () -> new Checkout().totalPence(List.of((String) null)));
+                    () -> new Checkout().totalPence(java.util.Arrays.asList((String) null)));
         });
 
         test("case-insensitive + trim", () -> {
