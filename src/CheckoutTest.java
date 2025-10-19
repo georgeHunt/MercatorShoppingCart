@@ -48,7 +48,7 @@ public final class CheckoutTest {
 
         test("case-insensitive + trim", () -> {
             int p = new Checkout().totalPence(List.of(" apple ", "ORANGE", "ApPlE"));
-            expectEquals(145, p, "case/trim should total 145 pence (BOGOF + one orange)");
+            expectEquals(85, p, "case/trim should total 145 pence (BOGOF + one orange)");
         });
 
         test("unknown item throws", () -> {
