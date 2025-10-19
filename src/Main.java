@@ -2,16 +2,19 @@ import java.util.List;
 
 public final class Main {
     public static void main(String[] args) {
-        // Example from brief
         List<String> basket = List.of("Apple", "Apple", "Orange", "Apple");
+        int total = 0;
+        for (String item : basket) total += price(item);
+        System.out.println(formatGBP(total));
+    }
 
-        int totalPence = 0;
-        for (String item : basket) {
-            if ("Apple".equals(item)) totalPence += 60;
-            else if ("Orange".equals(item)) totalPence += 25;
-            else throw new IllegalArgumentException("Unknown item: " + item);
-        }
+    static int price(String item) {
+        if ("Apple".equals(item))  return 60;
+        if ("Orange".equals(item)) return 25;
+        throw new IllegalArgumentException("Unknown item: " + item);
+    }
 
-        System.out.printf("£%d.%02d%n", totalPence / 100, totalPence % 100);
+    static String formatGBP(int pence) {
+        return String.format("£%d.%02d", pence / 100, pence % 100);
     }
 }
